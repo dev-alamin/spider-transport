@@ -1,258 +1,189 @@
-/**
- * SPIDER Transport — main.js
- *
- * Stack:
- *  - GSAP + ScrollTrigger  (animations)
- *  - Vanilla JS             (interactions)
- *
- * Note: jQuery is intentionally omitted.
- * When this scaffold converts to a WP Block Theme, interactive
- * behaviors will migrate to the @wordpress/interactivity API
- * (store(), getContext(), data-wp-* directives).
- *
- * Keep this file modular — one function per concern.
- */
+// <!-- Tab sliding pill (runs after DOM ready) -->
 
-/* ============================================================
-   GSAP PLUGIN REGISTRATION
-   ============================================================ */
-gsap.registerPlugin(ScrollTrigger);
+(function () {
+  const bar = document.querySelector('.tab-bar');
+  if (!bar) return;
+  const buttons = bar.querySelectorAll('.tab-btn');
 
-/* ============================================================
-   UTILITY
-   ============================================================ */
-const qs  = (sel, ctx = document) => ctx.querySelector(sel);
-const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+  // Create the sliding pill
+  const pill = document.createElement('div');
+  pill.className = 'tab-pill';
+  bar.style.position = 'relative'; // ensure relative context
+  bar.appendChild(pill);
 
-/* ============================================================
-   NAV — scroll state + mobile toggle
-   ============================================================ */
-function initNav() {
-  const nav    = qs('.nav');
-  const toggle = qs('.nav__toggle');
-  if (!nav) return;
+  function movePill(btn) {
+    const barRect = bar.getBoundingClientRect();
+    const btnRect = btn.getBoundingClientRect();
+    pill.style.width = btnRect.width + 'px';
+    pill.style.height = btnRect.height + 'px';
+    pill.style.transform = `translate(${btnRect.left - barRect.left}px, ${btnRect.top - barRect.top}px)`;
+  }
 
-  // Scrolled state
-  const onScroll = () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // run once on load
-
-  // Mobile toggle
-  if (toggle) {
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      const isOpen = nav.classList.contains('open');
-      toggle.setAttribute('aria-expanded', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+  // Set pill on active tab without animation first
+  const active = bar.querySelector('.tab-active');
+  if (active) {
+    pill.style.transition = 'none';
+    requestAnimationFrame(() => {
+      movePill(active);
+      requestAnimationFrame(() => {
+        pill.style.transition = 'transform 0.35s cubic-bezier(0.4,0,0.2,1), width 0.35s cubic-bezier(0.4,0,0.2,1)';
+      });
     });
   }
 
-  // Close on nav link click (mobile)
-  qsa('.nav__link').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      document.body.style.overflow = '';
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('tab-active'));
+      btn.classList.add('tab-active');
+      movePill(btn);
     });
   });
 
-  // Active link
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  qsa('.nav__link').forEach(link => {
-    const href = link.getAttribute('href')?.split('/').pop();
-    if (href === currentPath) link.classList.add('active');
+  // Recalculate on resize
+  window.addEventListener('resize', () => {
+    const cur = bar.querySelector('.tab-active');
+    if (!cur) return;
+    pill.style.transition = 'none';
+    movePill(cur);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      pill.style.transition = 'transform 0.35s cubic-bezier(0.4,0,0.2,1), width 0.35s cubic-bezier(0.4,0,0.2,1)';
+    }));
+  });
+})();
+
+
+//   < !-- ═══════════════════════════════════════════
+// GSAP — reusable animation system
+//   ═══════════════════════════════════════════ -->
+
+  gsap.registerPlugin(ScrollTrigger);
+
+// ─────────────────────────────────────────────────────────────
+// Reusable helpers
+// ─────────────────────────────────────────────────────────────
+
+/**
+ * fadeUp — fade + slide up on scroll. Used for single elements.
+ * @param {string|Element} target   CSS selector or DOM element
+ * @param {object}         opts     overrides: { y, duration, delay, start }
+ */
+function fadeUp(target, opts = {}) {
+  const { y = 40, duration = 0.75, delay = 0, start = 'top 88%' } = opts;
+  gsap.from(target, {
+    scrollTrigger: { trigger: target, start },
+    opacity: 0, y, duration, delay,
+    ease: 'power3.out',
   });
 }
 
-/* ============================================================
-   SCROLL ANIMATIONS
-   Picks up all [data-animate] elements automatically.
-   ============================================================ */
-function initScrollAnimations() {
-  const elements = qsa('[data-animate]');
-  if (!elements.length) return;
-
-  elements.forEach(el => {
-    const type  = el.dataset.animate || 'up';  // up | fade | left | right | scale
-    const delay = parseFloat(el.dataset.delay  || 0);
-    const dur   = parseFloat(el.dataset.dur    || 0.7);
-
-    const fromVars = { opacity: 0, duration: dur, delay, ease: 'power3.out' };
-
-    if (type === 'up')    { fromVars.y = 28; }
-    if (type === 'fade')  { /* opacity only */ }
-    if (type === 'left')  { fromVars.x = -36; }
-    if (type === 'right') { fromVars.x = 36; }
-    if (type === 'scale') { fromVars.scale = 0.92; }
-
-    ScrollTrigger.create({
-      trigger: el,
-      start: 'top 88%',
-      onEnter: () => gsap.to(el, { ...fromVars, opacity: 1, y: 0, x: 0, scale: 1 }),
-      once: true,
-    });
+/**
+ * staggerIn — stagger-fade a group of children on scroll.
+ * @param {string} parent     CSS selector for the scroll trigger + from() target
+ * @param {string} children   CSS selector for staggered items (relative to document)
+ * @param {object} opts       overrides: { y, duration, stagger, start }
+ */
+function staggerIn(parent, children, opts = {}) {
+  const { y = 48, duration = 0.7, stagger = 0.16, start = 'top 82%' } = opts;
+  gsap.from(children, {
+    scrollTrigger: { trigger: parent, start },
+    opacity: 0, y, duration, stagger,
+    ease: 'power3.out',
   });
 }
 
-/* ============================================================
-   STAGGER GROUPS
-   Add data-stagger to a parent; children animate in sequence.
-   ============================================================ */
-function initStaggerGroups() {
-  qsa('[data-stagger]').forEach(parent => {
-    const children = qsa('[data-stagger-item]', parent);
-    if (!children.length) return;
-
-    gsap.set(children, { opacity: 0, y: 24 });
-
-    ScrollTrigger.create({
-      trigger: parent,
-      start: 'top 85%',
-      onEnter: () => {
-        gsap.to(children, {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: 'power3.out',
-          stagger: 0.1,
-        });
-      },
-      once: true,
-    });
+/**
+ * slideIn — slide in from a side on scroll.
+ * @param {string|Element} target
+ * @param {object}         opts   overrides: { x, y, duration, start }
+ */
+function slideIn(target, opts = {}) {
+  const { x = 0, y = 0, duration = 0.8, start = 'top 85%' } = opts;
+  gsap.from(target, {
+    scrollTrigger: { trigger: target, start },
+    opacity: 0, x, y, duration,
+    ease: 'power3.out',
   });
 }
 
-/* ============================================================
-   COUNTER ANIMATION
-   <span data-counter="12">0</span>%
-   ============================================================ */
-function initCounters() {
-  qsa('[data-counter]').forEach(el => {
-    const target = parseFloat(el.dataset.counter);
-    const suffix = el.dataset.suffix || '';
+// ─────────────────────────────────────────────────────────────
+// 1. Hero — page-load timeline (no ScrollTrigger needed)
+// ─────────────────────────────────────────────────────────────
+gsap.timeline({ defaults: { ease: 'power3.out' } })
+  .from('#hero-title', { opacity: 0, y: 48, duration: 0.9 })
+  .from('#hero-text-block', { opacity: 0, y: 32, duration: 0.7 }, '-=0.55')
+  .from('#hero-cta', { opacity: 0, y: 24, duration: 0.6 }, '-=0.5')
+  .from('#hero-dashboard > *', { opacity: 0, y: 40, stagger: 0.14, duration: 0.7 }, '-=0.7');
 
-    ScrollTrigger.create({
-      trigger: el,
-      start: 'top 85%',
-      onEnter: () => {
-        gsap.to({ val: 0 }, {
-          val: target,
-          duration: 1.6,
-          ease: 'power2.out',
-          onUpdate: function () {
-            el.textContent = Math.round(this.targets()[0].val) + suffix;
-          },
-        });
-      },
-      once: true,
-    });
-  });
-}
+// ─────────────────────────────────────────────────────────────
+// 2. Every section heading — reuse fadeUp
+// ─────────────────────────────────────────────────────────────
+gsap.utils.toArray('.section-heading').forEach(el => fadeUp(el, { y: 36 }));
 
-/* ============================================================
-   TABS  (Bruksområder section)
-   data-tabs / data-tab-btn / data-tab-panel
-   ============================================================ */
-function initTabs() {
-  qsa('[data-tabs]').forEach(wrapper => {
-    const btns   = qsa('[data-tab-btn]',   wrapper);
-    const panels = qsa('[data-tab-panel]', wrapper);
+// ─────────────────────────────────────────────────────────────
+// 3. Section 2 — savings cards cascade, left copy slides
+// ─────────────────────────────────────────────────────────────
+staggerIn('#savings-cards', '.savings-card', { y: 50, stagger: 0.15 });
+slideIn('#savings-cards', { x: 30 });
 
-    function activate(index) {
-      btns.forEach((b, i) => {
-        b.classList.toggle('active', i === index);
-        b.setAttribute('aria-selected', i === index);
-      });
-      panels.forEach((p, i) => {
-        const isActive = i === index;
-        gsap.to(p, { opacity: isActive ? 1 : 0, y: isActive ? 0 : 12, duration: 0.3, ease: 'power2.out' });
-        p.style.pointerEvents = isActive ? '' : 'none';
-      });
-    }
+// ─────────────────────────────────────────────────────────────
+// 4. Section 3 — result cards
+// ─────────────────────────────────────────────────────────────
+staggerIn('.result-cards', '.result-card', { y: 56, stagger: 0.18 });
 
-    // Init
-    gsap.set(panels, { opacity: 0, y: 12, position: 'absolute', top: 0, left: 0, width: '100%' });
-    activate(0);
+// ─────────────────────────────────────────────────────────────
+// 5. Section 4 — process steps
+// ─────────────────────────────────────────────────────────────
+staggerIn('.process-steps', '.process-step', { y: 40, stagger: 0.2, start: 'top 85%' });
 
-    btns.forEach((btn, i) => {
-      btn.addEventListener('click', () => activate(i));
-    });
-  });
-}
+// ─────────────────────────────────────────────────────────────
+// 6. Section 5 — tabs copy + map card
+// ─────────────────────────────────────────────────────────────
+slideIn('.tabs-copy', { x: -30, start: 'top 84%' });
+slideIn('.tabs-map', { x: 30, start: 'top 84%' });
 
-/* ============================================================
-   SLIDER / CAROUSEL  (arrow navigation)
-   data-slider / data-slide / data-prev / data-next
-   ============================================================ */
-function initSliders() {
-  qsa('[data-slider]').forEach(slider => {
-    const slides   = qsa('[data-slide]', slider);
-    const prevBtn  = qs('[data-prev]', slider);
-    const nextBtn  = qs('[data-next]', slider);
-    if (!slides.length) return;
+// ─────────────────────────────────────────────────────────────
+// 7. Section 6 — case cards
+// ─────────────────────────────────────────────────────────────
+staggerIn('.case-cards', '.case-card', { y: 48, stagger: 0.17 });
 
-    let current = 0;
+// ─────────────────────────────────────────────────────────────
+// 8. Footer
+// ─────────────────────────────────────────────────────────────
+fadeUp('footer', { y: 60, duration: 0.9, start: 'top 95%' });
 
-    function go(index) {
-      slides[current].classList.remove('active');
-      current = (index + slides.length) % slides.length;
-      slides[current].classList.add('active');
-    }
-
-    go(0);
-    prevBtn?.addEventListener('click', () => go(current - 1));
-    nextBtn?.addEventListener('click', () => go(current + 1));
-  });
-}
-
-/* ============================================================
-   HERO ENTRANCE (runs immediately, no scroll trigger)
-   ============================================================ */
-function initHeroEntrance() {
-  const hero = qs('.hero');
-  if (!hero) return;
-
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-  tl.from('.hero__label',    { opacity: 0, y: 16, duration: 0.6 })
-    .from('.hero__headline', { opacity: 0, y: 24, duration: 0.7 }, '-=0.3')
-    .from('.hero__body',     { opacity: 0, y: 16, duration: 0.6 }, '-=0.4')
-    .from('.hero__actions',  { opacity: 0, y: 16, duration: 0.6 }, '-=0.4')
-    .from('.hero__stats',    { opacity: 0, y: 12, duration: 0.5, stagger: 0.1 }, '-=0.3')
-    .from('.hero__visual',   { opacity: 0, x: 40, duration: 0.9 }, '-=0.8');
-}
-
-/* ============================================================
-   INIT — run all modules on DOMContentLoaded
-   ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
-  initNav();
-  initHeroEntrance();
-  initScrollAnimations();
-  initStaggerGroups();
-  initCounters();
-  initTabs();
-  initSliders();
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const menuDrawer = document.getElementById('mobile-menu-drawer');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const closeLinks = document.querySelectorAll('.mobile-nav-close, #mobile-menu-drawer a');
+
+  function toggleMenu() {
+    const isOpen = !menuDrawer.classList.contains('hidden');
+    
+    if (isOpen) {
+      // Close operations
+      menuDrawer.classList.add('hidden');
+      hamburgerIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      document.body.style.overflow = ''; // Release window scroll
+    } else {
+      // Open operations
+      menuDrawer.classList.remove('hidden');
+      hamburgerIcon.classList.add('hidden');
+      closeIcon.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // Lock window scroll
+    }
+  }
+
+  toggleBtn.addEventListener('click', toggleMenu);
+
+  // Auto-collapse when clicking anchor routes or inner button links
+  closeLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (!menuDrawer.classList.contains('hidden')) {
+        toggleMenu();
+      }
+    });
+  });
 });
-
-/* ============================================================
-   WP INTERACTIVITY API — MIGRATION NOTES
-   ============================================================
-   When converting to a Block Theme, replace the above with:
-
-   import { store, getContext } from '@wordpress/interactivity';
-
-   store('spider/nav', {
-     state: { isOpen: false, isScrolled: false },
-     actions: {
-       toggleMenu() { getContext().isOpen = !getContext().isOpen; },
-     },
-     callbacks: {
-       onScroll() { ... },
-     },
-   });
-
-   Then in block.json add: "interactivity": true
-   And use data-wp-interactive, data-wp-on, data-wp-class etc.
-   ============================================================ */

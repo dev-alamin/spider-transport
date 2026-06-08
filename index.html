@@ -8,9 +8,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Onest:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900" rel="stylesheet">
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/css/tailwind-cdn.3.4.17.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -32,40 +32,7 @@
     }
   </script>
 
-  <!-- GSAP + ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-  <style>
-    /* ─── Consistent site-wide content width ─── */
-    /*
-      Layout strategy:
-        - Outer shell: max-w-[1440px] mx-auto (caps page on very wide screens)
-        - Inner content: max-w-[1280px] mx-auto px-6 lg:px-12
-        - All sections share .site-inner for content alignment
-    */
-
-    /* Pre-animation hidden state — set via JS, so no flash without JS */
-    .gsap-hidden {
-      opacity: 0;
-      transform: translateY(32px);
-    }
-
-    .gsap-hidden-left {
-      opacity: 0;
-      transform: translateX(-40px);
-    }
-
-    .gsap-hidden-right {
-      opacity: 0;
-      transform: translateX(40px);
-    }
-
-    .gsap-hidden-scale {
-      opacity: 0;
-      transform: scale(0.94);
-    }
-  </style>
+  <link href="/assets/css/main.css" rel="stylesheet" />
 </head>
 
 <!--
@@ -89,45 +56,79 @@
   <div class="max-w-[95%] mx-auto bg-spider-bg rounded-b-[40px] lg:rounded-b-[56px] shadow-2xl overflow-hidden text-white">
 
     <!-- Header -->
-    <header id="site-header" class="w-full z-50 bg-transparent">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+  <header id="site-header" class="w-full z-50 bg-transparent relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
 
-        <a href="#" class="flex items-center gap-3 group">
-          <div class="w-9 h-9 text-white flex-shrink-0">
-            <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-              <path d="M22 2L14 10.5M22 2L30 10.5M22 2V13.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M14 10.5L22 19L30 10.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M14 10.5V23.5L22 31.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M30 10.5V23.5L22 31.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M22 19V31.5M22 31.5L14 39.5M22 31.5L30 39.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="flex flex-col leading-none">
-            <span class="text-xl font-bold tracking-wider text-white">SPIDER</span>
-            <span class="text-[9px] text-gray-400 tracking-widest font-light mt-0.5">Solutions</span>
-          </div>
-        </a>
-
-        <nav class="hidden md:flex items-center gap-10">
-          <a href="#" class="text-sm font-medium text-white hover:text-gray-300 transition-colors">Hjem</a>
-          <a href="funksjoner.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Funksjonalitet</a>
-          <a href="resultater.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Resultater</a>
-          <a href="hvordan-det-fungerer.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Hvordan det fungerer</a>
-          <a href="kontakt.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Kontakt</a>
-        </nav>
-
-        <div class="hidden md:flex items-center">
-          <a href="#kontakt" class="border border-white/10 bg-white/5 hover:bg-white/10 text-white text-sm font-medium px-6 py-2.5 rounded-full transition-all duration-200">
-            Kontakt oss
+          <!-- Logo -->
+          <a href="#" class="flex items-center gap-3 group relative z-50">
+            <div class="w-9 h-9 text-white flex-shrink-0">
+              <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                <path d="M22 2L14 10.5M22 2L30 10.5M22 2V13.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M14 10.5L22 19L30 10.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 10.5V23.5L22 31.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M30 10.5V23.5L22 31.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 19V31.5M22 31.5L14 39.5M22 31.5L30 39.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="flex flex-col leading-none">
+              <span class="text-xl font-bold tracking-wider text-white">SPIDER</span>
+              <span class="text-[9px] text-gray-400 tracking-widest font-light mt-0.5">Solutions</span>
+            </div>
           </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex items-center gap-10">
+            <a href="#" class="nav-link active text-sm font-medium text-white transition-colors">Hjem</a>
+            <a href="funksjoner.html" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Funksjonalitet</a>
+            <a href="resultater.html" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Resultater</a>
+            <a href="hvordan-det-fungerer.html" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Hvordan det fungerer</a>
+            <a href="kontakt.html" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Kontakt</a>
+          </nav>
+
+          <!-- Desktop CTA -->
+          <div class="hidden md:flex items-center">
+            <a href="#kontakt" class="btn-header-cta border border-white/10 bg-white/5 hover:bg-white/10 text-white text-sm font-medium px-6 py-2.5 rounded-full transition-all duration-200">
+              Kontakt oss
+            </a>
+          </div>
+
+          <!-- Mobile Menu Hamburger Button -->
+          <button id="mobile-menu-toggle" class="md:hidden p-2 text-white hover:text-gray-300 focus:outline-none relative z-50" aria-label="Toggle meny">
+            <svg id="hamburger-icon" class="w-6 h-6 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 hidden transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+
         </div>
 
-      </div>
+        <!-- Mobile Full-Screen Overlay Navigation Drawer -->
+        <div id="mobile-menu-drawer" class="fixed inset-0 bg-[#080E16]/98 backdrop-blur-md z-40 hidden flex-col justify-between px-6 pt-32 pb-10 transition-all duration-300">
+          
+          <!-- Navigation Links Stack -->
+          <nav class="flex flex-col space-y-6 text-center">
+            <a href="#" class="text-xl font-medium text-white transition-colors py-2">Hjem</a>
+            <a href="funksjoner.html" class="text-xl font-medium text-gray-400 hover:text-white transition-colors py-2">Funksjonalitet</a>
+            <a href="resultater.html" class="text-xl font-medium text-gray-400 hover:text-white transition-colors py-2">Resultater</a>
+            <a href="hvordan-det-fungerer.html" class="text-xl font-medium text-gray-400 hover:text-white transition-colors py-2">Hvordan det fungerer</a>
+            <a href="kontakt.html" class="text-xl font-medium text-gray-400 hover:text-white transition-colors py-2">Kontakt</a>
+          </nav>
+
+          <!-- Mobile Drawer CTA Button -->
+          <div class="w-full pt-6 border-t border-white/10">
+            <a href="#kontakt" class="mobile-nav-close block w-full text-center bg-spider-blue text-white text-base font-semibold py-4 rounded-xl shadow-lg shadow-spider-blue/20">
+              Kontakt oss
+            </a>
+          </div>
+
+        </div>
     </header>
 
     <!-- Hero -->
-    <main class="max-w-7xl mx-auto px-6 lg:px-12 pt-4 pb-20 lg:pb-28">
-      <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[calc(100vh-160px)]">
+    <main class="max-w-7xl mx-auto px-6 lg:px-12 pt-4 pb-12 lg:pb-8">
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-[7rem] items-center min-h-[calc(100vh-160px)]">
 
         <!-- Left copy -->
         <div class="lg:col-span-6 space-y-8">
@@ -151,8 +152,8 @@
           </div>
 
           <div id="hero-cta">
-            <a href="#funksjoner" class="inline-block bg-white text-spider-bg hover:bg-gray-100 font-medium px-8 py-3.5 rounded-full transition-all duration-200 text-base shadow-lg">
-              Se funksjoner
+            <a href="#funksjoner" class="btn-sweep btn-sweep-dark inline-block bg-white text-spider-bg font-medium px-8 py-3.5 rounded-full text-base shadow-lg">
+              <span>Se funksjoner</span>
             </a>
           </div>
         </div>
@@ -298,7 +299,6 @@
       </div>
     </div>
   </section>
-
   
   <section class="bg-white py-20 lg:py-28 border-t border-gray-100 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
@@ -357,7 +357,7 @@
           <div class="space-y-4">
             <h3 class="text-2xl font-bold text-spider-bg">Reduser kostnader</h3>
             <p class="text-sm text-gray-500 leading-relaxed">SPIDER gir typisk 12–15% reduksjon i bilpark og transportkostnader. For mange virksomheter betyr dette at hver 7. eller 8. bil kan fjernes fra drift – med direkte utslag på bunnlinjen.</p>
-            <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-spider-blue hover:gap-2 transition-all pt-2">Finn ut mer <span>→</span></a>
+            <a href="#" class="link-arrow text-sm font-semibold text-spider-blue pt-2">Finn ut mer <span class="arrow">→</span></a>
           </div>
         </div>
 
@@ -366,7 +366,7 @@
           <div class="space-y-4 z-10 relative">
             <h3 class="text-2xl font-bold text-spider-bg pr-6">Integreres med eksisterende systemer</h3>
             <p class="text-sm text-gray-500 leading-relaxed">SPIDER fungerer som en optimaliseringsmotor som kobles til dine eksisterende systemer. Du får bedre resultater uten å måtte bytte ut det du allerede bruker.</p>
-            <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-spider-blue hover:gap-2 transition-all">Finn ut mer <span>→</span></a>
+            <a href="#" class="link-arrow text-sm font-semibold text-spider-blue">Finn ut mer <span class="arrow">→</span></a>
           </div>
           <div class="w-full relative h-40 mt-6 -mx-8 bg-gradient-to-b from-transparent to-gray-50/50 flex flex-col items-center justify-end">
             <div class="absolute top-0 w-16 h-16 bg-spider-blue text-white rounded-full flex items-center justify-center shadow-lg shadow-spider-blue/30 z-20">
@@ -405,7 +405,7 @@
           <div class="space-y-4">
             <h3 class="text-2xl font-bold text-spider-bg">Optimalisering</h3>
             <p class="text-sm text-gray-500 leading-relaxed line-clamp-3">Systemet beregner de ruter og kombinasjoner som best balanserer alle relevante variabler. Dette sikrer optimal kapasitetsutnyttelse...</p>
-            <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-spider-blue hover:gap-2 transition-all pt-2">Finn ut mer <span>→</span></a>
+            <a href="#" class="link-arrow text-sm font-semibold text-spider-blue pt-2">Finn ut mer <span class="arrow">→</span></a>
           </div>
         </div>
 
@@ -474,8 +474,8 @@
       </div>
 
       <div class="flex justify-center">
-        <a href="#utforsk" class="inline-block bg-spider-blue text-white font-medium px-10 py-3.5 rounded-full transition-all duration-200 text-sm shadow-xl shadow-spider-blue/20 hover:bg-opacity-95">
-          Utforsk
+        <a href="#utforsk" class="btn-sweep btn-sweep-blue inline-block bg-spider-blue text-white font-medium px-10 py-3.5 rounded-full text-sm shadow-xl shadow-spider-blue/20">
+          <span>Utforsk</span>
         </a>
       </div>
 
@@ -495,11 +495,11 @@
       </div>
 
       <div class="flex justify-center mb-16 lg:mb-24">
-        <div class="bg-[#F1F3F5]/70 border border-gray-100 p-1.5 rounded-2xl flex flex-wrap items-center justify-center gap-1 sm:gap-2 max-w-3xl">
-          <button class="text-sm font-medium text-spider-bg hover:bg-white/60 px-5 py-3 rounded-xl transition-colors">Daglig drift</button>
-          <button class="text-sm font-semibold text-white bg-spider-bg px-6 py-3 rounded-xl shadow-md">Reoptimalisering</button>
-          <button class="text-sm font-medium text-spider-bg hover:bg-white/60 px-5 py-3 rounded-xl transition-colors">Anbud og tilbud</button>
-          <button class="text-sm font-medium text-spider-bg hover:bg-white/60 px-5 py-3 rounded-xl transition-colors">What-if analyser</button>
+        <div class="tab-bar bg-[#F1F3F5]/70 border border-gray-100 p-1.5 rounded-2xl flex flex-wrap items-center justify-center gap-1 sm:gap-2 max-w-3xl">
+          <button class="tab-btn text-sm font-medium text-spider-bg px-5 py-3 rounded-xl" data-tab="daglig">Daglig drift</button>
+          <button class="tab-btn tab-active text-sm px-6 py-3 rounded-xl" data-tab="reotp">Reoptimalisering</button>
+          <button class="tab-btn text-sm font-medium text-spider-bg px-5 py-3 rounded-xl" data-tab="anbud">Anbud og tilbud</button>
+          <button class="tab-btn text-sm font-medium text-spider-bg px-5 py-3 rounded-xl" data-tab="whatif">What-if analyser</button>
         </div>
       </div>
 
@@ -578,7 +578,7 @@
             <div class="bg-white border border-gray-100 rounded-xl p-3.5 text-xs sm:text-sm text-gray-500 leading-normal">
               <span class="font-bold text-spider-bg">Resultat:</span> ca. 15% innsparing i drift.
             </div>
-            <a href="#" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-spider-blue hover:gap-2 transition-all">Finn ut mer <span class="text-sm">→</span></a>
+            <a href="#" class="link-arrow text-xs sm:text-sm font-semibold text-spider-blue">Finn ut mer <span class="arrow text-sm">→</span></a>
           </div>
         </div>
 
@@ -597,7 +597,7 @@
             <div class="bg-white border border-gray-100 rounded-xl p-3.5 text-xs sm:text-sm text-gray-500 leading-normal">
               <span class="font-bold text-spider-bg">Resultat:</span> bedre beslutningsgrunnlag og mer presise kalkyler.
             </div>
-            <a href="#" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-spider-blue hover:gap-2 transition-all">Finn ut mer <span class="text-sm">→</span></a>
+            <a href="#" class="link-arrow text-xs sm:text-sm font-semibold text-spider-blue">Finn ut mer <span class="arrow text-sm">→</span></a>
           </div>
         </div>
 
@@ -619,7 +619,7 @@
             <div class="bg-white border border-gray-100 rounded-xl p-3.5 text-xs sm:text-sm text-gray-500 leading-normal">
               <span class="font-bold text-spider-bg">Resultat:</span> mer effektive ruter og bedre ressursutnyttelse.
             </div>
-            <a href="#" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-spider-blue hover:gap-2 transition-all">Finn ut mer <span class="text-sm">→</span></a>
+            <a href="#" class="link-arrow text-xs sm:text-sm font-semibold text-spider-blue">Finn ut mer <span class="arrow text-sm">→</span></a>
           </div>
         </div>
 
@@ -711,107 +711,10 @@
     </div>
   </footer>
 
-
-  <!-- ═══════════════════════════════════════════
-       GSAP — reusable animation system
-  ═══════════════════════════════════════════ -->
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    // ─────────────────────────────────────────────────────────────
-    // Reusable helpers
-    // ─────────────────────────────────────────────────────────────
-
-    /**
-     * fadeUp — fade + slide up on scroll. Used for single elements.
-     * @param {string|Element} target   CSS selector or DOM element
-     * @param {object}         opts     overrides: { y, duration, delay, start }
-     */
-    function fadeUp(target, opts = {}) {
-      const { y = 40, duration = 0.75, delay = 0, start = 'top 88%' } = opts;
-      gsap.from(target, {
-        scrollTrigger: { trigger: target, start },
-        opacity: 0, y, duration, delay,
-        ease: 'power3.out',
-      });
-    }
-
-    /**
-     * staggerIn — stagger-fade a group of children on scroll.
-     * @param {string} parent     CSS selector for the scroll trigger + from() target
-     * @param {string} children   CSS selector for staggered items (relative to document)
-     * @param {object} opts       overrides: { y, duration, stagger, start }
-     */
-    function staggerIn(parent, children, opts = {}) {
-      const { y = 48, duration = 0.7, stagger = 0.16, start = 'top 82%' } = opts;
-      gsap.from(children, {
-        scrollTrigger: { trigger: parent, start },
-        opacity: 0, y, duration, stagger,
-        ease: 'power3.out',
-      });
-    }
-
-    /**
-     * slideIn — slide in from a side on scroll.
-     * @param {string|Element} target
-     * @param {object}         opts   overrides: { x, y, duration, start }
-     */
-    function slideIn(target, opts = {}) {
-      const { x = 0, y = 0, duration = 0.8, start = 'top 85%' } = opts;
-      gsap.from(target, {
-        scrollTrigger: { trigger: target, start },
-        opacity: 0, x, y, duration,
-        ease: 'power3.out',
-      });
-    }
-
-    // ─────────────────────────────────────────────────────────────
-    // 1. Hero — page-load timeline (no ScrollTrigger needed)
-    // ─────────────────────────────────────────────────────────────
-    gsap.timeline({ defaults: { ease: 'power3.out' } })
-      .from('#hero-title',       { opacity: 0, y: 48, duration: 0.9 })
-      .from('#hero-text-block',  { opacity: 0, y: 32, duration: 0.7 }, '-=0.55')
-      .from('#hero-cta',         { opacity: 0, y: 24, duration: 0.6 }, '-=0.5')
-      .from('#hero-dashboard > *', { opacity: 0, y: 40, stagger: 0.14, duration: 0.7 }, '-=0.7');
-
-    // ─────────────────────────────────────────────────────────────
-    // 2. Every section heading — reuse fadeUp
-    // ─────────────────────────────────────────────────────────────
-    gsap.utils.toArray('.section-heading').forEach(el => fadeUp(el, { y: 36 }));
-
-    // ─────────────────────────────────────────────────────────────
-    // 3. Section 2 — savings cards cascade, left copy slides
-    // ─────────────────────────────────────────────────────────────
-    staggerIn('#savings-cards', '.savings-card', { y: 50, stagger: 0.15 });
-    slideIn('#savings-cards', { x: 30 });
-
-    // ─────────────────────────────────────────────────────────────
-    // 4. Section 3 — result cards
-    // ─────────────────────────────────────────────────────────────
-    staggerIn('.result-cards', '.result-card', { y: 56, stagger: 0.18 });
-
-    // ─────────────────────────────────────────────────────────────
-    // 5. Section 4 — process steps
-    // ─────────────────────────────────────────────────────────────
-    staggerIn('.process-steps', '.process-step', { y: 40, stagger: 0.2, start: 'top 85%' });
-
-    // ─────────────────────────────────────────────────────────────
-    // 6. Section 5 — tabs copy + map card
-    // ─────────────────────────────────────────────────────────────
-    slideIn('.tabs-copy',  { x: -30, start: 'top 84%' });
-    slideIn('.tabs-map',   { x:  30, start: 'top 84%' });
-
-    // ─────────────────────────────────────────────────────────────
-    // 7. Section 6 — case cards
-    // ─────────────────────────────────────────────────────────────
-    staggerIn('.case-cards', '.case-card', { y: 48, stagger: 0.17 });
-
-    // ─────────────────────────────────────────────────────────────
-    // 8. Footer
-    // ─────────────────────────────────────────────────────────────
-    fadeUp('footer', { y: 60, duration: 0.9, start: 'top 95%' });
-
-  </script>
-
+    <!-- GSAP + ScrollTrigger -->
+  <script src="assets/js/gsap.min.js"></script>
+  <script src="assets/js/ScrollTrigger.min.js"></script>
+  
+  <script src="assets/js/main.js"> </script>
 </body>
 </html>

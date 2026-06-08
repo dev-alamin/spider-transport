@@ -42,52 +42,74 @@
     class="bg-[#F8F9FA] text-spider-bg font-sans antialiased overflow-x-hidden selection:bg-spider-blue selection:text-white pt-4">
 
     <!-- Header / Navigation -->
-    <header id="site-header" class="w-full z-50 bg-gray-950">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+<header id="site-header" class="w-full z-50 bg-transparent relative">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
 
-            <!-- Exact Brand Identity Layout -->
-            <a href="index.html" class="flex items-center gap-3 group">
-                <div class="w-9 h-9 text-white flex-shrink-0">
-                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                        <path d="M22 2L14 10.5M22 2L30 10.5M22 2V13.5" stroke="currentColor" stroke-width="2.5"
-                            stroke-linecap="round" />
-                        <path d="M14 10.5L22 19L30 10.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M14 10.5V23.5L22 31.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M30 10.5V23.5L22 31.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M22 19V31.5M22 31.5L14 39.5M22 31.5L30 39.5" stroke="currentColor" stroke-width="2.5"
-                            stroke-linecap="round" />
-                    </svg>
-                </div>
-                <div class="flex flex-col leading-none">
-                    <span class="text-xl font-bold tracking-wider text-white">SPIDER</span>
-                    <span class="text-[9px] text-gray-400 tracking-widest font-light mt-0.5">Solutions</span>
-                </div>
-            </a>
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group relative z-50">
+          <div class="w-9 h-9 text-white flex-shrink-0">
+            <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+              <path d="M22 2L14 10.5M22 2L30 10.5M22 2V13.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M14 10.5L22 19L30 10.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 10.5V23.5L22 31.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M30 10.5V23.5L22 31.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 19V31.5M22 31.5L14 39.5M22 31.5L30 39.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="flex flex-col leading-none">
+            <span class="text-xl font-bold tracking-wider text-white">SPIDER</span>
+            <span class="text-[9px] text-gray-400 tracking-widest font-light mt-0.5">Solutions</span>
+          </div>
+        </a>
 
-            <!-- Navigation Links (Resultater set to active white state) -->
-            <nav class="hidden md:flex items-center gap-10">
-                <a href="index.html"
-                    class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Hjem</a>
-                <a href="funksjonalitet.html"
-                    class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Funksjonalitet</a>
-                <a href="#" class="text-sm font-medium text-white transition-colors">Resultater</a>
-                <a href="hvordan-det-fungerer.html"
-                    class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Hvordan det
-                    fungerer</a>
-            </nav>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-10">
+          <a href="#" class="nav-link active text-sm font-medium text-white transition-colors">Hjem</a>
+          <a href="funksjoner.html" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Funksjonalitet</a>
+          <a href="resultater.html" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Resultater</a>
+          <a href="hvordan-det-fungerer.html" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Hvordan det fungerer</a>
+          <a href="kontakt.html" class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">Kontakt</a>
+        </nav>
 
-            <!-- Utility Action Button -->
-            <div class="hidden md:flex items-center">
-                <a href="#kontakt"
-                    class="border border-white/10 bg-white/5 hover:bg-white/10 text-white text-sm font-medium px-6 py-2.5 rounded-full transition-all duration-200">
-                    Kontakt oss
-                </a>
-            </div>
-
+        <!-- Desktop CTA -->
+        <div class="hidden md:flex items-center">
+          <a href="#kontakt" class="btn-header-cta border border-white/10 bg-white/5 hover:bg-white/10 text-white text-sm font-medium px-6 py-2.5 rounded-full transition-all duration-200">
+            Kontakt oss
+          </a>
         </div>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button id="mobile-menu-toggle" class="md:hidden p-2 text-white hover:text-gray-300 focus:outline-none relative z-50" aria-label="Toggle meny">
+          <svg id="hamburger-icon" class="w-6 h-6 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+
+      </div>
+
+      <!-- Mobile Full-Screen Overlay Navigation Drawer -->
+      <div id="mobile-menu-drawer" class="fixed inset-0 bg-[#080E16]/98 backdrop-blur-md z-40 hidden flex-col justify-between px-6 pt-32 pb-10 transition-all duration-300">
+        
+        <!-- Navigation Links Stack -->
+        <nav class="flex flex-col space-y-6 text-center">
+          <a href="#" class="text-xl font-medium text-white transition-colors py-2">Hjem</a>
+          <a href="funksjoner.html" class="text-xl font-medium text-gray-400 hover:text-white transition-colors py-2">Funksjonalitet</a>
+          <a href="resultater.html" class="text-xl font-medium text-gray-400 hover:text-white transition-colors py-2">Resultater</a>
+          <a href="hvordan-det-fungerer.html" class="text-xl font-medium text-gray-400 hover:text-white transition-colors py-2">Hvordan det fungerer</a>
+          <a href="kontakt.html" class="text-xl font-medium text-gray-400 hover:text-white transition-colors py-2">Kontakt</a>
+        </nav>
+
+        <!-- Mobile Drawer CTA Button -->
+        <div class="w-full pt-6 border-t border-white/10">
+          <a href="#kontakt" class="mobile-nav-close block w-full text-center bg-spider-blue text-white text-base font-semibold py-4 rounded-xl shadow-lg shadow-spider-blue/20">
+            Kontakt oss
+          </a>
+        </div>
+
+      </div>
     </header>
 
 <section class="bg-[#F8F9FA] py-16 lg:py-24 border-t border-gray-100">

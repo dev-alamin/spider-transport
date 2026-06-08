@@ -33,6 +33,119 @@
   font-display: swap;
 }
 
-h1, h2, h3, h4, h5, h6, button {
+h1, h2, h3, h4, h5, h6, button, h1 span {
   font-family: 'Nexa', sans-serif;
 }
+
+/* ─── Consistent site-wide content width ─── */
+    /*
+      Layout strategy:
+        - Outer shell: max-w-[1440px] mx-auto (caps page on very wide screens)
+        - Inner content: max-w-[1280px] mx-auto px-6 lg:px-12
+        - All sections share .site-inner for content alignment
+    */
+
+    /* ─── Nav link hover — sliding underline dot ─── */
+    .nav-link {
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: #fff;
+      border-radius: 2px;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after { width: 100%; }
+    .nav-link.active { color: #fff !important; }
+
+    /* ─── Header CTA — shimmer sweep ─── */
+    .btn-header-cta {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .btn-header-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%);
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+    .btn-header-cta:hover::before { transform: translateX(100%); }
+
+    /* ─── Primary buttons — fill sweep left→right ─── */
+    .btn-sweep {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      transition: color 0.35s ease, box-shadow 0.35s ease;
+    }
+    .btn-sweep::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      transform: translateX(-101%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: inherit;
+    }
+    .btn-sweep:hover::before { transform: translateX(0); }
+    .btn-sweep > span { position: relative; z-index: 1; }
+
+    /* White button (hero) — dark fill sweeps in */
+    .btn-sweep-dark::before { background: #080E16; }
+    .btn-sweep-dark:hover { color: #fff; }
+
+    /* Blue button (Utforsk, Kontakt) — deeper blue fills in + glow */
+    .btn-sweep-blue::before { background: #1a55d4; }
+    .btn-sweep-blue:hover {
+      box-shadow: 0 0 0 4px rgba(42,105,236,0.18), 0 8px 24px rgba(42,105,236,0.35);
+    }
+
+    /* ─── Tab pill — sliding indicator ─── */
+    .tab-bar { position: relative; }
+
+    .tab-btn {
+      position: relative;
+      z-index: 1;
+      transition: color 0.25s ease;
+      cursor: pointer;
+    }
+    .tab-btn.tab-active { color: #fff; font-weight: 600; }
+    .tab-btn:not(.tab-active):hover { background: rgba(255,255,255,0.5); border-radius: 0.75rem; }
+
+    /* Sliding pill — injected via JS */
+    .tab-pill {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      background: #080E16;
+      border-radius: 0.75rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                  width   0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ─── "Finn ut mer →" link — arrow slide ─── */
+    .link-arrow {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap 0.25s ease;
+    }
+    .link-arrow .arrow {
+      display: inline-block;
+      transition: transform 0.25s ease;
+    }
+    .link-arrow:hover { gap: 8px; }
+    .link-arrow:hover .arrow { transform: translateX(3px); }
