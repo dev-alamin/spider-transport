@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="no" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPIDER Transport — Reduser transportkostnader med 12–15%</title>
+  <meta name="description" content="SPIDER optimaliserer transport på et nivå som gir målbare resultater – typisk 12–15% reduksjon i både ruter og kostnader." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Onest:wght@100..900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Nexa', 'sans-serif'],
+          },
+          colors: {
+            spider: {
+              bg: '#080E16',       // Deep midnight background
+              blue: '#2A69EC',     // Precise vibrant blue pill highlight
+              card: '#0D1522',     // Slightly lighter dark for inner cards
+              cardBorder: '#1A2638'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <link href="assets/css/main.css" rel="stylesheet" />
+</head>
+<body class="text-spider-bg font-sans antialiased overflow-x-hidden selection:bg-spider-blue selection:text-white">
+
+  <!-- Global Background Grid Lines -->
+<div class="fixed inset-0 pointer-events-none z-40 max-w-[95%] mx-auto">
+  <div class="w-full h-full flex justify-between border-l border-r border-gray-200/40">
+    <!-- Left border line aligns with left content bounds -->
+    <!-- Right border line aligns with right content bounds -->
+    
+  </div>
+</div>
+
+  <div class="max-w-[95%] mx-auto bg-spider-bg rounded-b-[40px] lg:rounded-b-[56px] shadow-2xl overflow-hidden text-white">
+    
+    <header id="site-header" class="w-full z-50 bg-transparent">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+        
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 text-white flex-shrink-0">
+            <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+              <path d="M22 2L14 10.5M22 2L30 10.5M22 2V13.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M14 10.5L22 19L30 10.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 10.5V23.5L22 31.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M30 10.5V23.5L22 31.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 19V31.5M22 31.5L14 39.5M22 31.5L30 39.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="flex flex-col leading-none">
+            <span class="text-xl font-bold tracking-wider text-white">SPIDER</span>
+            <span class="text-[9px] text-gray-400 tracking-widest font-light mt-0.5">Solutions</span>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-10">
+          <a href="#" class="text-sm font-medium text-white hover:text-gray-300 transition-colors">Hjem</a>
+          <a href="funksjoner.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Funksjonalitet</a>
+          <a href="resultater.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Resultater</a>
+          <a href="hvordan-det-fungerer.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Hvordan det fungerer</a>
+          <a href="404.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Not found page</a>
+          <a href="kontakt.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Kontakt</a>
+          <a href="page.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Page</a>
+          <!-- archive page  -->
+           <a href="archive.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Archive</a>
+        </nav>
+
+        <div class="hidden md:flex items-center">
+          <a href="#kontakt" class="border border-white/10 bg-white/5 hover:bg-white/10 text-white text-sm font-medium px-6 py-2.5 rounded-full transition-all duration-200">
+            Kontakt oss
+          </a>
+        </div>
+
+      </div>
+    </header>
+
+    <main class="mx-auto px-6 lg:px-12 pt-4 pb-20 lg:pb-28">
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[calc(100vh-160px)]">
+        
+        <div class="lg:col-span-6 space-y-8">
+          <div class="space-y-6">
+            <h1 id="hero-title" class="text-5xl sm:text-6xl lg:text-[68px] font-bold tracking-tight text-white leading-[1.08]">
+              Reduser <br class="hidden sm:inline">
+              transportkostnader <br>
+              <span class="inline-block mt-2 bg-spider-blue text-white px-6 py-1.5 rounded-2xl shadow-xl shadow-spider-blue/20">
+                med 12–15%
+              </span>
+            </h1>
+
+            <div id="hero-text-block" class="space-y-4 max-w-xl">
+              <p class="text-base text-gray-300 leading-relaxed">
+                SPIDER optimaliserer transport på et nivå som gir målbare resultater – typisk 12–15% reduksjon i bilpark, ruter og kostnader
+              </p>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Se hva du faktisk kan spare før du gjør endringer. SPIDER analyserer dine data og gir deg et beslutningsgrunnlag basert på fakta, ikke antakelser. I tillegg avdekkes strukturelle forbedringer i drift som kan gi ytterligere besparelser.
+              </p>
+            </div>
+          </div>
+
+          <div id="hero-cta">
+            <a href="#funksjoner" class="inline-block bg-white text-spider-bg hover:bg-gray-100 font-medium px-8 py-3.5 rounded-full transition-all duration-200 text-base shadow-lg">
+              Se funksjoner
+            </a>
+          </div>
+        </div>
+
+        <div id="hero-dashboard" class="lg:col-span-6 space-y-4">
+          <div class="bg-spider-card border border-spider-cardBorder rounded-2xl p-6 relative overflow-hidden">
+            <div class="flex justify-between items-center mb-6">
+              <span class="text-xs font-semibold uppercase tracking-widest text-gray-400">Planoversikt</span>
+              <div class="flex items-center gap-1.5 text-xs text-spider-blue font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-spider-blue animate-pulse"></span> Live
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4 relative z-10">
+              <div>
+                <div class="text-xs text-gray-500 mb-1">Kjøretøy</div>
+                <div class="font-display text-2xl sm:text-3xl font-bold tracking-tight text-white">10 - 2.000+</div>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500 mb-1">Oppdrag per day</div>
+                <div class="font-display text-2xl sm:text-3xl font-bold tracking-tight text-white">50 - 30.000+</div>
+              </div>
+            </div>
+
+            <div class="absolute inset-0 opacity-20 pointer-events-none mt-12 mix-blend-screen">
+              <svg class="w-full h-full" viewBox="0 0 400 200" fill="none" stroke="#2A69EC" stroke-width="1.5">
+                <path d="M10 150 L120 80 L250 140 L390 40" stroke-dasharray="4 4" />
+                <path d="M50 180 L180 110 L300 50" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-spider-card border border-spider-cardBorder rounded-2xl p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="p-2 rounded-lg bg-spider-blue/10 text-spider-blue">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path></svg>
+                </div>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-gray-400">Kostnadsreduksjon</span>
+              </div>
+              <div class="font-display text-3xl font-bold text-white mb-0.5">12-20%</div>
+              <div class="text-xs text-gray-500">Reduksjon i transportkostnader</div>
+            </div>
+
+            <div class="bg-spider-card border border-spider-cardBorder rounded-2xl p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="p-2 rounded-lg bg-spider-blue/10 text-spider-blue">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"></path></svg>
+                </div>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-gray-400">Bilreduksjon</span>
+              </div>
+              <div class="font-display text-3xl font-bold text-white mb-0.5">3 av 20</div>
+              <div class="text-xs text-gray-500">Kjøretøy fjernet fra bilpark</div>
+            </div>
+          </div>
+
+          <div class="bg-spider-card border border-spider-cardBorder rounded-2xl p-5">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="p-2 rounded-lg bg-spider-blue/10 text-spider-blue">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8.433 7.418c.554-.589 1.448-.589 2.002 0l.207.22 1.217-1.214-.207-.22a4.1 4.1 0 00-5.718 0l-.207.22 1.217 1.214.207-.22zM13.682 12.656a4.1 4.1 0 000-5.718l-.207-.22-1.217 1.214.207.22c.554.589.554 1.448 0 2.002l-.207.22 1.217 1.214.207-.22z"></path></svg>
+              </div>
+              <span class="text-[10px] uppercase font-bold tracking-wider text-gray-400">Årlig besparelse</span>
+            </div>
+            
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between border-b border-white/5 pb-2 text-gray-300">
+                <span>~4,000,000 NOK</span> <span class="text-gray-500">ved 20 biler</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-2 text-gray-300">
+                <span>~40,000,000 NOK</span> <span class="text-gray-500">ved 200 biler</span>
+              </div>
+              <div class="flex justify-between pt-1 text-gray-300">
+                <span>~400,000,000 NOK</span> <span class="text-gray-500">ved 2000 biler</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div> 
+
+
+  <section class="border-t border-gray-100 grid grid-cols-1 lg:grid-cols-2 min-h-[640px]">
+    
+    <div class="bg-[#F8F9FA] px-6 py-20 lg:py-28 lg:px-16 xl:px-24 flex items-center justify-end border-b lg:border-b-0 lg:border-r border-gray-200/60">
+      <div class="max-w-xl space-y-6 w-full">
+        <span class="block text-xs font-bold tracking-widest text-spider-blue uppercase">
+          Hva betyr dette for en transportvirksomhet?
+        </span>
+        
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-tight text-spider-bg leading-[1.12]">
+          Slik ser gevinsten ut i praksis
+        </h2>
+        
+        <div class="space-y-5 text-gray-600 text-sm sm:text-base leading-relaxed">
+          <p class="font-semibold text-spider-bg text-base">
+            Et eksempel på hvordan SPIDER reduserer kostnader, forbedrer ressursutnyttelsen og effektiviserer transportdrift.
+          </p>
+          <p class="text-gray-500">
+            En transportoperasjon med 20 biler og 300 oppdrag per dag kan, ved bruk av SPIDER, redusere behovet med rundt 3 biler. Dette tilsvarer ofte en årlig innsparing på rundt 4 millioner kroner.
+          </p>
+          <p class="text-gray-500">
+            SPIDER identifiserer også strukturelle forbedringer i drift – som arbeidstider, rutestrukturer, terminalplassering og ressursbruk – som kan gi ytterligere potensial for kostnadsreduksjon.
+          </p>
+          <p class="text-gray-500">
+            Resultatet er ikke bare bedre ruter, men en mer effektiv, skalerbar og lønnsom transportdrift.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white px-6 py-20 lg:py-28 lg:px-16 xl:px-24 flex items-center justify-start relative overflow-hidden">
+      
+      <div class="absolute inset-0 pointer-events-none z-0 hidden sm:block">
+        <svg class="w-full h-full" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 180 145 
+                   L 375 145 
+                   L 375 220 
+                   L 145 220 
+                   L 145 315 
+                   L 205 315 
+                   L 205 410 
+                   L 315 410" 
+                stroke="#E5E7EB" 
+                stroke-width="1.5" 
+                fill="none" />
+        </svg>
+      </div>
+
+      <div class="w-full max-w-md flex flex-col gap-5 relative z-10">
+        
+        <div class="w-full max-w-[270px] bg-spider-bg text-white rounded-[20px] p-4 pl-6 pr-8 flex items-center gap-4 shadow-xl shadow-spider-bg/10 self-start">
+          <span class="text-2xl font-bold tracking-tight border-r border-white/10 pr-4">300</span>
+          <span class="text-sm font-normal text-gray-300 tracking-wide">oppdrag</span>
+        </div>
+
+        <div class="w-full max-w-[230px] bg-white text-spider-bg rounded-[24px] p-4 px-6 flex items-center justify-between shadow-[0_15px_30px_rgba(0,0,0,0.06)] border border-gray-100 self-end mr-6">
+          <span class="text-2xl font-bold text-spider-blue tracking-tight">20</span>
+          <span class="text-xs font-medium text-gray-500 border-l border-gray-100 pl-4">kjøretøy</span>
+        </div>
+
+        <div class="w-full max-w-[275px] bg-white text-spider-bg rounded-[24px] p-4 px-6 flex items-center justify-between shadow-[0_15px_30px_rgba(0,0,0,0.06)] border border-gray-100 self-center -translate-x-4">
+          <span class="text-2xl font-bold text-spider-blue tracking-tight">~3</span>
+          <span class="text-xs font-medium text-gray-500 border-l border-gray-100 pl-4">biler redusert fra drift</span>
+        </div>
+
+        <div class="w-full max-w-[340px] bg-spider-blue text-white rounded-[24px] p-5 px-6 flex items-center justify-between shadow-[0_20px_40px_rgba(42,105,236,0.25)] self-start mt-2">
+          <span class="text-xl sm:text-2xl font-bold tracking-tight">~4,000,000 NOK</span>
+          <span class="text-xs font-medium text-white/90 border-l border-white/20 pl-4 whitespace-nowrap">årlig besparelse</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Result section  -->
+   <section class="bg-white py-20 lg:py-28 border-t border-gray-100 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+        <div class="space-y-3">
+          <span class="block text-xs font-bold tracking-widest text-spider-blue uppercase">
+            Resultater
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-bold tracking-tight text-spider-bg">
+            Verdien av SPID ER
+          </h2>
+        </div>
+        
+        <div class="flex items-center gap-3">
+          <button class="w-12 h-12 rounded-full bg-[#F8F9FA] text-spider-bg hover:bg-gray-100 flex items-center justify-center transition-colors focus:outline-none" aria-label="Forrige">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+          </button>
+          <button class="w-12 h-12 rounded-full bg-spider-blue text-white hover:bg-opacity-90 flex items-center justify-center transition-colors shadow-lg shadow-spider-blue/25 focus:outline-none" aria-label="Neste">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+        
+        <div class="bg-white border border-gray-200/80 rounded-[28px] p-8 flex flex-col justify-between shadow-sm min-h-[480px]">
+          
+          <div class="bg-white rounded-2xl border border-gray-100 p-4 shadow-[0_10px_25px_rgba(0,0,0,0.03)] space-y-4 mb-6">
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-spider-bg text-white rounded-xl p-3">
+                <div class="text-[9px] text-gray-400 uppercase font-semibold tracking-wider mb-1">Total kjørelengde</div>
+                <div class="flex items-baseline justify-between">
+                  <span class="text-base font-bold tracking-tight">1,9M km</span>
+                  <span class="text-[9px] text-green-400 font-medium">↓ -13%</span>
+                </div>
+              </div>
+              <div class="bg-spider-blue text-white rounded-xl p-3">
+                <div class="text-[9px] text-white/70 uppercase font-semibold tracking-wider mb-1">Transportkostnad</div>
+                <div class="flex items-baseline justify-between">
+                  <span class="text-base font-bold tracking-tight">NOK 32M</span>
+                  <span class="text-[9px] text-white/90 font-medium">↓ -12%</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="pt-2 border-t border-gray-100">
+              <div class="text-[9px] text-gray-400 uppercase font-bold tracking-wider mb-2">Kjøretøy redusert fra drift</div>
+              <div class="flex items-center justify-between">
+                <div class="flex gap-1.5 opacity-40">
+                  <span class="bg-gray-100 p-1 rounded text-spider-bg"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg></span>
+                  <span class="bg-gray-100 p-1 rounded text-spider-bg"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg></span>
+                  <span class="bg-gray-100 p-1 rounded text-spider-bg"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg></span>
+                  <span class="bg-gray-100 p-1 rounded text-spider-bg"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg></span>
+                </div>
+                <span class="text-[10px] text-green-500 font-bold bg-green-50 px-2 py-0.5 rounded-full">4 spart</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-2xl font-bold text-spider-bg">Reduser kostnader</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              SPIDER gir typisk 12–15% reduksjon i bilpark og transportkostnader. For mange virksomheter betyr dette at hver 7. eller 8. bil kan fjernes fra drift – med direkte utslag på bunnlinjen.
+            </p>
+            <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-spider-blue hover:gap-2 transition-all pt-2">
+              Finn ut mer <span>→</span>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="bg-white border border-gray-200/80 rounded-[28px] p-8 flex flex-col justify-between shadow-sm min-h-[480px] relative overflow-hidden">
+          
+          <div class="space-y-4 z-10 relative">
+            <h3 class="text-2xl font-bold text-spider-bg pr-6">Integreres med eksisterende systemer</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              SPIDER fungerer som en optimaliseringsmotor som kobles til dine eksisterende systemer. Du får bedre resultater uten å måtte bytte ut det du allerede bruker.
+            </p>
+            <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-spider-blue hover:gap-2 transition-all">
+              Finn ut mer <span>→</span>
+            </a>
+          </div>
+
+          <div class="w-full relative h-40 mt-6 -mx-8 bg-gradient-to-b from-transparent to-gray-50/50 flex flex-col items-center justify-end">
+            <div class="absolute top-0 w-16 h-16 bg-spider-blue text-white rounded-full flex items-center justify-center shadow-lg shadow-spider-blue/30 z-20">
+              <svg viewBox="0 0 44 44" fill="none" class="w-8 h-8" stroke="currentColor" stroke-width="2.5">
+                <path d="M22 4L14 12.5M22 4L30 12.5M22 4V15.5 M14 12.5L22 21L30 12.5 M14 12.5V25.5L22 33.5 M30 12.5V25.5L22 33.5"/>
+              </svg>
+            </div>
+            
+            <div class="absolute inset-0 top-8 z-0">
+              <svg class="w-full h-full" viewBox="0 0 300 100" fill="none" stroke="#E5E7EB" stroke-width="1.5" stroke-dasharray="3 3">
+                <path d="M150 0 V60 M150 0 L60 60 M150 0 L240 60" />
+              </svg>
+            </div>
+
+            <div class="w-full flex justify-center items-center gap-4 px-4 pb-4 relative z-10 overflow-hidden opacity-80">
+              <div class="w-10 h-10 rounded-full bg-white shadow-sm border border-gray-100 flex items-center justify-center font-bold text-[10px] text-blue-600">P</div>
+              <div class="w-11 h-11 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-green-600 font-bold text-sm">X</div>
+              <div class="w-11 h-11 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-red-600 font-bold text-xs uppercase tracking-tighter">Infor</div>
+              <div class="w-11 h-11 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-amber-500 font-bold text-[9px] uppercase tracking-tighter">Tms</div>
+              <div class="w-10 h-10 rounded-full bg-white shadow-sm border border-gray-100 flex items-center justify-center font-bold text-[9px] text-gray-400">MOV</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="bg-white border border-gray-200/80 rounded-[28px] p-8 flex flex-col justify-between shadow-sm min-h-[480px] relative overflow-hidden opacity-95">
+          
+          <div class="relative w-full aspect-[16/10] bg-blue-50/40 border border-blue-100/40 rounded-xl overflow-hidden mb-6">
+            <svg class="absolute inset-0 w-full h-full opacity-60" viewBox="0 0 200 120" fill="none" stroke="#2A69EC" stroke-width="1">
+              <path d="M20 90 L80 40 L140 70 L190 20" stroke-dasharray="2 2" />
+              <circle cx="140" cy="70" r="4" fill="#2A69EC" />
+              <circle cx="140" cy="70" r="10" stroke="#2A69EC" stroke-width="1" class="animate-ping" style="animation-duration: 3s;" />
+            </svg>
+            
+            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white rounded-lg p-2 px-4 shadow-md text-center border border-gray-100 min-w-[90px]">
+              <div class="text-sm font-bold text-spider-bg tracking-tight">-18%</div>
+              <div class="text-[8px] text-gray-400 uppercase font-semibold tracking-wider">Distance</div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-2xl font-bold text-spider-bg">Optimalisering</h3>
+            <p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
+              Systemet beregner de ruter og kombinasjoner som best balanserer alle relevante variabler. Dette sikrer optimal kapasitetsutnyttelse...
+            </p>
+            <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-spider-blue hover:gap-2 transition-all pt-2">
+              Finn ut mer <span>→</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- SECTION 4: HVORDAN DET FUNGERER            -->
+  <!-- ========================================== -->
+  <section class="bg-[#F8F9FA] py-20 lg:py-28 border-t border-gray-200/60">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
+      
+      <!-- Section Headers -->
+      <div class="space-y-3 mb-16 lg:mb-24">
+        <span class="block text-xs font-bold tracking-widest text-spider-blue uppercase">
+          Hvordan det fungerer
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-bold tracking-tight text-spider-bg">
+          Slik fungerer SPIDER
+        </h2>
+      </div>
+
+      <!-- Process Workflow Container -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6 relative max-w-5xl mx-auto items-start mb-16">
+        
+        <!-- STEP 1: Smartere ruteplanlegging -->
+        <div class="flex flex-col items-center relative group">
+          
+          <!-- Active Step Badge with Dual Soft Shadow Layers -->
+          <div class="relative w-20 h-20 mb-6 flex items-center justify-center rounded-full bg-white shadow-[0_10px_25px_rgba(0,0,0,0.02)]">
+            <div class="w-14 h-14 bg-spider-blue text-white rounded-full flex items-center justify-center font-bold text-base shadow-lg shadow-spider-blue/30">
+              1
+            </div>
+          </div>
+
+          <!-- Connection Line 1 (Sits absolute to the right of Step 1 on desktop layouts) -->
+          <div class="hidden md:block absolute top-10 left-[60%] w-[80%] pointer-events-none z-10">
+            <svg class="w-full" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Flowing Blue Wave Graphic -->
+              <path d="M 10 20 Q 45 -10, 80 20 T 150 20" stroke="#2A69EC" stroke-width="1.5" fill="none" />
+              <!-- Point Terminus Node -->
+              <circle cx="150" cy="20" r="2" fill="#2A69EC" />
+            </svg>
+          </div>
+
+          <!-- Text Block -->
+          <div class="space-y-3 px-4">
+            <h3 class="text-lg font-bold text-spider-bg">Smartere ruteplanlegging</h3>
+            <p class="text-xs sm:text-sm text-gray-500 leading-relaxed max-w-[280px] mx-auto">
+              SPIDER analyserer oppdrag, ressurser, tidsvinduer og begrensninger for å beregne de mest effektive rutene – tilpasset den faktiske driften.
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 2: Optimalisering av kompleksitet -->
+        <div class="flex flex-col items-center relative group">
+          
+          <!-- Neutral Step Badge -->
+          <div class="w-20 h-20 mb-6 flex items-center justify-center rounded-full bg-[#F1F3F5] shadow-[0_10px_20px_rgba(0,0,0,0.04)] border border-white">
+            <span class="text-base font-bold text-spider-bg">2</span>
+          </div>
+
+          <!-- Connection Line 2 (Sits absolute to the right of Step 2 on desktop layouts) -->
+          <div class="hidden md:block absolute top-10 left-[60%] w-[80%] pointer-events-none z-10">
+            <svg class="w-full" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Muted Mellow Organic Wave Line -->
+              <path d="M 10 20 Q 45 5, 80 20 T 150 20" stroke="#E1DCD6" stroke-width="1.5" fill="none" />
+              <!-- Point Terminus Node -->
+              <circle cx="150" cy="20" r="2" fill="#E1DCD6" />
+            </svg>
+          </div>
+
+          <!-- Text Block -->
+          <div class="space-y-3 px-4">
+            <h3 class="text-lg font-bold text-spider-bg">Optimalisering av kompleksitet</h3>
+            <p class="text-xs sm:text-sm text-gray-500 leading-relaxed max-w-[280px] mx-auto">
+              Systemet håndterer komplekse planleggingsscenarioer og finner løsninger som balanserer effektivitet, kapasitet og ressursbruk i stor skala.
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 3: Intelligent beslutningsstøtte -->
+        <div class="flex flex-col items-center relative">
+          
+          <!-- Neutral Step Badge -->
+          <div class="w-20 h-20 mb-6 flex items-center justify-center rounded-full bg-[#F1F3F5] shadow-[0_10px_20px_rgba(0,0,0,0.04)] border border-white">
+            <span class="text-base font-bold text-spider-bg">3</span>
+          </div>
+
+          <!-- Text Block -->
+          <div class="space-y-3 px-4">
+            <h3 class="text-lg font-bold text-spider-bg">Intelligent beslutningsstøtte</h3>
+            <p class="text-xs sm:text-sm text-gray-500 leading-relaxed max-w-[280px] mx-auto">
+              SPIDER kombinerer avansert optimaliseringsteknologi med praktisk beslutningsstøtte for å skape målbare resultater i transportdriften.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Centered Action Link Trigger Button -->
+      <div class="flex justify-center">
+        <a href="#utforsk" class="inline-block bg-spider-blue text-white font-medium px-10 py-3.5 rounded-full transition-all duration-200 text-sm shadow-xl shadow-spider-blue/20 hover:bg-opacity-95">
+          Utforsk
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- SECTION 5: BRUKSOMRÅDER (TAB MATRIX)       -->
+  <!-- ========================================== -->
+  <section class="bg-white py-20 lg:py-28 border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <!-- Section Header Info -->
+      <div class="text-center space-y-3 mb-12">
+        <span class="block text-xs font-bold tracking-widest text-spider-blue uppercase">
+          Hvor Spider skaper verdi
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-bold tracking-tight text-spider-bg">
+          Bruksområder
+        </h2>
+      </div>
+
+      <!-- Tab Navigation Menu Bar matching image_0606a3.png -->
+      <div class="flex justify-center mb-16 lg:mb-24">
+        <div class="bg-[#F1F3F5]/70 border border-gray-100 p-1.5 rounded-2xl flex flex-wrap items-center justify-center gap-1 sm:gap-2 max-w-3xl">
+          <button class="text-sm font-medium text-spider-bg hover:bg-white/60 px-5 py-3 rounded-xl transition-colors">
+            Daglig drift
+          </button>
+          <button class="text-sm font-semibold text-white bg-spider-bg px-6 py-3 rounded-xl shadow-md">
+            Reoptimalisering
+          </button>
+          <button class="text-sm font-medium text-spider-bg hover:bg-white/60 px-5 py-3 rounded-xl transition-colors">
+            Anbud og tilbud
+          </button>
+          <button class="text-sm font-medium text-spider-bg hover:bg-white/60 px-5 py-3 rounded-xl transition-colors">
+            What-if analyser
+          </button>
+        </div>
+      </div>
+
+      <!-- Active Content Panel View Layout Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+        
+        <!-- Left Column: Copy Details Area -->
+        <div class="lg:col-span-5 space-y-6 text-left">
+          <h3 class="text-3xl font-bold text-spider-bg tracking-tight">
+            Reoptimalisering
+          </h3>
+          
+          <div class="space-y-4 text-gray-500 text-sm sm:text-base leading-relaxed">
+            <p class="text-spider-bg font-medium">
+              Juster ruter raskt når forutsetninger endres, uten å måtte starte planleggingen på nytt.
+            </p>
+            <p>
+              SPIDER gjør det mulig å reoptimalisere transportplaner fortløpende gjennom dagen. Systemet håndterer endringer i oppdrag, trafikk, kapasitet, forsinkelser og tilgjengelige ressurser — og beregner nye optimale løsninger på sekunder.
+            </p>
+            <p>
+              Dette gir høyere fleksibilitet i driften, bedre ressursutnyttelse og mindre manuelt arbeid for planleggere og driftssentral.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Column: Abstract Map Vector Routing Card Interface -->
+        <div class="lg:col-span-7 relative w-full flex justify-center lg:justify-end">
+          <div class="w-full max-w-[540px] aspect-[4/3] sm:aspect-[1.35] bg-[#F8F9FA] rounded-[32px] p-6 border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.04)] relative overflow-hidden flex items-end">
+            
+            <!-- Abstract Map Grid Graphic Mockup Lines -->
+            <div class="absolute inset-0 opacity-40 z-0">
+              <svg class="w-full h-full" viewBox="0 0 400 300" stroke="#E5E7EB" stroke-width="1.2" fill="none">
+                <!-- Diagonal Grid Mesh Elements -->
+                <line x1="50" y1="0" x2="120" y2="300" />
+                <line x1="180" y1="0" x2="220" y2="300" />
+                <line x1="320" y1="0" x2="380" y2="300" />
+                <line x1="0" y1="60" x2="400" y2="40" />
+                <line x1="0" y1="180" x2="400" y2="150" />
+                <line x1="0" y1="240" x2="400" y2="250" />
+                <!-- Short Block Sub-divider segments -->
+                <path d="M40 80 H140 M180 120 V200 M260 40 L300 120" />
+              </svg>
+            </div>
+
+            <!-- Absolute Floating Dark Trend Analytics Badge Indicator -->
+            <div class="absolute top-8 left-8 w-14 h-14 rounded-full bg-spider-bg text-white flex items-center justify-center shadow-lg shadow-spider-bg/20 z-20">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307L20.25 7.5M20.25 7.5H13.5M20.25 7.5v6.75"/></svg>
+            </div>
+
+            <!-- Vector Path Routing Connections -->
+            <div class="absolute inset-0 z-10 p-10 pt-16">
+              <svg class="w-full h-full" viewBox="0 0 340 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Original Blue Route Line String -->
+                <path d="M 40 185 L 140 160 L 110 95 L 245 25" stroke="#2A69EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                
+                <!-- Re-optimized Alternate Loop Route Line String (Dotted Path) -->
+                <path d="M 140 160 L 245 150 L 255 45 L 245 25" stroke="#000000" stroke-width="1.5" stroke-dasharray="4 4" stroke-linecap="round" stroke-linejoin="round"/>
+                
+                <!-- Node 1: Start Location Node Ring (Bottom Left) -->
+                <circle cx="40" cy="185" r="10" fill="#2A69EC" fill-opacity="0.15" />
+                <circle cx="40" cy="185" r="5" fill="#2A69EC" />
+                
+                <!-- Node 2: Destination Arrival Node Ring (Top Right) -->
+                <circle cx="245" cy="25" r="10" fill="#2A69EC" fill-opacity="0.15" />
+                <circle cx="245" cy="25" r="5" fill="#2A69EC" />
+              </svg>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- SECTION 6: KUNDECASER (CASE STUDIES GRID)  -->
+  <!-- ========================================== -->
+  <section class="bg-[#F8F9FA] py-20 lg:py-28 border-t border-gray-200/60">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
+      
+      <!-- Section Header Info -->
+      <div class="space-y-3 mb-16">
+        <span class="block text-xs font-bold tracking-widest text-spider-blue uppercase">
+          Kundecaser
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-bold tracking-tight text-spider-bg">
+          Dokumenterte resultater<br class="sm:hidden"> fra virkeligheten
+        </h2>
+      </div>
+
+      <!-- Case Studies 3-Column Grid Layout Matrix -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left items-stretch">
+        
+        <!-- CARD 1: Bakehuset -->
+        <div class="bg-white rounded-[24px] p-6 flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.02)] border border-gray-100 min-h-[460px]">
+          <div>
+            <!-- Logo Preview Container Block -->
+            <div class="w-full aspect-[16/10] bg-[#F1F3F5] rounded-2xl flex items-center justify-center p-8 mb-6">
+              <!-- Inline Graphic Representation of Bakehuset Identity -->
+              <div class="flex flex-col items-center text-center text-spider-bg">
+                <div class="w-12 h-12 rounded-full border-2 border-double border-spider-bg flex items-center justify-center font-serif font-bold text-xl mb-1 italic">B</div>
+                <span class="font-serif italic font-bold tracking-tight text-lg">Bakehuset</span>
+              </div>
+            </div>
+
+            <!-- Content Area Text Fields -->
+            <div class="space-y-3 mb-6">
+              <h3 class="text-lg font-bold text-spider-bg">Bakehuset</h3>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                Reduserte bilparken fra 20 til 17 biler på hoveddepot.
+              </p>
+            </div>
+          </div>
+
+          <!-- Structured Dynamic Result Box & Prompt -->
+          <div class="space-y-4">
+            <div class="bg-white border border-gray-100 rounded-xl p-3.5 text-xs sm:text-sm text-gray-500 leading-normal">
+              <span class="font-bold text-spider-bg">Resultat:</span> ca. 15% innsparing i drift.
+            </div>
+            <a href="#" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-spider-blue hover:gap-2 transition-all">
+              Finn ut mer <span class="text-sm">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 2: PostNord -->
+        <div class="bg-white rounded-[24px] p-6 flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.02)] border border-gray-100 min-h-[460px]">
+          <div>
+            <!-- Logo Preview Container Block -->
+            <div class="w-full aspect-[16/10] bg-[#F1F3F5] rounded-2xl flex items-center justify-center p-8 mb-6">
+              <!-- Inline Graphic Representation of PostNord Identity -->
+              <span class="text-2xl font-black italic tracking-tighter text-[#00857A]">postnord</span>
+            </div>
+
+            <!-- Content Area Text Fields -->
+            <div class="space-y-3 mb-6">
+              <h3 class="text-lg font-bold text-spider-bg">PostNord</h3>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                Brukt til optimalisering og beregning i anbudsprosesser.
+              </p>
+            </div>
+          </div>
+
+          <!-- Structured Dynamic Result Box & Prompt -->
+          <div class="space-y-4">
+            <div class="bg-white border border-gray-100 rounded-xl p-3.5 text-xs sm:text-sm text-gray-500 leading-normal">
+              <span class="font-bold text-spider-bg">Resultat:</span> bedre beslutningsgrunnlag og mer presise kalkyler.
+            </div>
+            <a href="#" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-spider-blue hover:gap-2 transition-all">
+              Finn ut mer <span class="text-sm">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 3: Norgesgruppen -->
+        <div class="bg-white rounded-[24px] p-6 flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.02)] border border-gray-100 min-h-[460px]">
+          <div>
+            <!-- Logo Preview Container Block -->
+            <div class="w-full aspect-[16/10] bg-[#F1F3F5] rounded-2xl flex items-center justify-center p-8 mb-6">
+              <!-- Inline Graphic Representation of NorgesGruppen Identity -->
+              <div class="flex flex-col items-center text-center text-[#1E3A8A]">
+                <svg class="w-12 h-12 mb-1" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-gray-600">NorgesGruppen</span>
+              </div>
+            </div>
+
+            <!-- Content Area Text Fields -->
+            <div class="space-y-3 mb-6">
+              <h3 class="text-lg font-bold text-spider-bg">Norgesgruppen</h3>
+              <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                Optimalisering av komplekse distribusjonsruter med høye krav til presisjon.
+              </p>
+            </div>
+          </div>
+
+          <!-- Structured Dynamic Result Box & Prompt -->
+          <div class="space-y-4">
+            <div class="bg-white border border-gray-100 rounded-xl p-3.5 text-xs sm:text-sm text-gray-500 leading-normal">
+              <span class="font-bold text-spider-bg">Resultat:</span> mer effektive ruter og bedre ressursutnyttelse.
+            </div>
+            <a href="#" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-spider-blue hover:gap-2 transition-all">
+              Finn ut mer <span class="text-sm">→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- FOOTER CANVAS BLOCK WRAPPER                -->
+  <!-- ========================================== -->
+  <footer class="max-w-[95%] mx-auto bg-spider-bg rounded-t-[40px] lg:rounded-t-[56px] shadow-2xl overflow-hidden text-white mt-12">
+    
+    <!-- Blueprint Grid Line Layer & Inner Padding Frame -->
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24 grid grid-cols-1 md:grid-cols-12 gap-12 items-start relative">
+      
+      <!-- Subtle Vertical Grid Line Accents Mockup (Optional matching image_05ffc3.png) -->
+      <div class="absolute inset-0 grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 pointer-events-none opacity-[0.03]">
+        <div class="border-r border-white h-full"></div><div class="border-r border-white h-full"></div>
+        <div class="border-r border-white h-full"></div><div class="border-r border-white h-full"></div>
+        <div class="border-r border-white h-full"></div><div class="border-r border-white h-full"></div>
+        <div class="border-r border-white h-full"></div><div class="border-r border-white h-full"></div>
+        <div class="border-r border-white h-full"></div><div class="border-r border-white h-full"></div>
+        <div class="border-r border-white h-full"></div>
+      </div>
+
+      <!-- Left Brand Column (Spans 5 Columns on Desktop) -->
+      <div class="md:col-span-5 space-y-8 relative z-10">
+        
+        <!-- Replicated Logo Structure -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 text-white flex-shrink-0">
+            <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+              <path d="M22 2L14 10.5M22 2L30 10.5M22 2V13.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M14 10.5L22 19L30 10.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 10.5V23.5L22 31.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M30 10.5V23.5L22 31.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 19V31.5M22 31.5L14 39.5M22 31.5L30 39.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="flex flex-col leading-none">
+            <span class="text-xl font-bold tracking-wider text-white">SPIDER</span>
+            <span class="text-[9px] text-gray-400 tracking-widest font-light mt-0.5">Solutions</span>
+          </div>
+        </a>
+
+        <!-- Description Paragraph Text -->
+        <p class="text-sm text-gray-400 leading-relaxed max-w-sm">
+          SPIDER optimaliserer transport på et nivå som gir målbare resultater – typisk 12–15% reduksjon i bilpark, ruter og kostnader
+        </p>
+
+        <!-- Social Channels Links Media Row matching image_05ffc3.png -->
+        <div class="flex items-center gap-3 pt-2">
+          <!-- LinkedIn (Active/Solid Pill Badge) -->
+          <a href="#" class="w-10 h-10 rounded-full bg-white text-spider-bg flex items-center justify-center transition-transform hover:scale-105 shadow-md" aria-label="LinkedIn">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" class="w-10 h-10 rounded-full border border-white/10 text-white hover:bg-white/5 flex items-center justify-center transition-colors" aria-label="Instagram">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" h="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <!-- X / Twitter -->
+          <a href="#" class="w-10 h-10 rounded-full border border-white/10 text-white hover:bg-white/5 flex items-center justify-center transition-colors" aria-label="X (Twitter)">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <!-- Facebook -->
+          <a href="#" class="w-10 h-10 rounded-full border border-white/10 text-white hover:bg-white/5 flex items-center justify-center transition-colors" aria-label="Facebook">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Spacer Column for Layout Padding (Spans 3 Columns) -->
+      <div class="hidden lg:block lg:col-span-3"></div>
+
+      <!-- Middle Navigation Column Links (Spans 2 Columns) -->
+      <div class="md:col-span-3 lg:col-span-2 space-y-5 relative z-10">
+        <div class="space-y-2">
+          <h4 class="text-xs font-bold tracking-widest text-white uppercase">Navigasjon</h4>
+          <div class="w-8 h-0.5 bg-spider-blue"></div> <!-- Blue underline indicator -->
+        </div>
+        <nav class="flex flex-col gap-3 text-sm text-gray-400">
+          <a href="#" class="hover:text-white transition-colors">Hjem</a>
+          <a href="#funksjonalitet" class="hover:text-white transition-colors">Funksjonalitet</a>
+          <a href="#resultater" class="hover:text-white transition-colors">Resultater</a>
+          <a href="#hvordan-det-fungerer" class="hover:text-white transition-colors">Hvordan det fungerer</a>
+        </nav>
+      </div>
+
+      <!-- Right Utility Column Links (Spans 4 Columns) -->
+      <div class="md:col-span-4 lg:col-span-2 space-y-5 relative z-10">
+        <div class="space-y-2">
+          <h4 class="text-xs font-bold tracking-widest text-white uppercase">Nyttig</h4>
+          <div class="w-8 h-0.5 bg-spider-blue"></div> <!-- Blue underline indicator -->
+        </div>
+        <nav class="flex flex-col gap-3 text-sm text-gray-400">
+          <a href="#personvern" class="hover:text-white transition-colors">Personvernerklæring</a>
+          <a href="#behandling" class="hover:text-white transition-colors">Behandling av personopplysninger</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
